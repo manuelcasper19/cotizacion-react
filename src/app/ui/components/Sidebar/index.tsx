@@ -26,7 +26,7 @@ export const SidebarMenu: IItemMenu[] = [
   },
   {
       title: 'Simular',
-      url: '/simular',
+      url: '/recommendation',
       icon: FaIcons.FaSlideshare
   }
 ];
