@@ -1,0 +1,25 @@
+/* Sidebar.css */
+.header {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    height: 3.5rem;
+    background-color: #000080;
+    margin: 0;
+    padding: 0;
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    z-index: 1; 
+}
+
+.menu-icon__open {
+  display: flex;
+  justify-content: start;
+  font-size: 1.5rem;
+  margin-left: 2rem;
+  color: #ffffff;
+  text-decoration: none;
+}
+
