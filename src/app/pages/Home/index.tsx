@@ -1,19 +1,11 @@
-import  { ReactElement } from 'react'
-import { useLiteryWork } from '../../core/hooks/useLiteryWork';
+import  { ReactElement } from 'react';
+import { LiteyworkContainer } from '../../container/LiteryworkContainer';
 
 
 const Home = () : ReactElement => {
-    const { literywork } = useLiteryWork();
-  
+   
     return (
-      <section>
-      <h1>HOME</h1> 
-      <ul>
-        
-        {literywork.map((customer) => <li key={customer.title}>{customer.title} {customer.price} {customer.incrasePrice}</li>)}
-      </ul>   
-      </section>
-    )
-}
-
-export default Home
+      <LiteyworkContainer/>
+    );
+};
+export default Home;

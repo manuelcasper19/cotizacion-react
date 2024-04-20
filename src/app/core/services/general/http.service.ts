@@ -9,9 +9,11 @@ const headers: HeadersInit = {
   };
   
   export default {
-    post: <T>(url: string, body: any): Promise<T> => fetch(url, { headers, method: 'POST', body: JSON.stringify(body) }).then((response) => response.json()),
-    get: (url: string) => fetch(url, { headers, method: 'GET' }),
-    put: <T>(url: string, body: any): Promise<T> => fetch(url, { headers, method: 'PUT', body: JSON.stringify(body) }).then((response) => response.json()),
-    delete: <T>(url: string): Promise<T> => fetch(url, { headers, method: 'DELETE' }).then((response) => response.json())
-  };
+    post: async (url: RequestInfo, body?: any): Promise<Response> => await fetch(url, { headers, method: 'POST', body: body ? JSON.stringify(body) : undefined }),
   
+    get: async (url: RequestInfo): Promise<Response> => await fetch(url, { headers, method: 'GET' }),
+  
+    put: async (url: RequestInfo, body?: any): Promise<Response> => await fetch(url, { headers, method: 'PUT', body: body ? JSON.stringify(body) : undefined }),
+  
+    delete: async (url: RequestInfo): Promise<Response> => await fetch(url, { headers, method: 'DELETE' })
+  };

@@ -1,13 +1,8 @@
 import { useContext, useEffect } from 'react';
 import { AppContext } from '../states/Appcontext';
 import { getLiteryWork } from '../services/customer.service';
+import { ILiteryWork } from '../models/literywork.model';
 
-
-export interface ILiteryWork {
-  title: string;
-  price: number;
-  increasePrice: number;
-}
 
 export const useLiteryWork = () => {
   const { state, dispatch } = useContext(AppContext);
@@ -15,6 +10,7 @@ export const useLiteryWork = () => {
   useEffect(() => {
     getLiteryWork()
       .then((literywork : ILiteryWork[]) => {
+        console.log(literywork);
         dispatch({ type: 'LITERYWORK_GOTTEN', payload: literywork });
       });
   }, []);

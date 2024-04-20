@@ -1,6 +1,7 @@
 export interface ILiteryWork {
     title: string;
+    url: string;
     price: number;
-    increasePrice: number;
+    incrasePrice: number;
   }
   
