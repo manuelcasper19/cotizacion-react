@@ -15,3 +15,16 @@ export const getLiteryWork = (): Promise<ILiteryWork[]> => {
       }));
     });
 };
+
+export const createLiteryWork = async ( literywork: ILiteryWork) : Promise<ILiteryWork> => {
+  const url = `${urls.literywork}/calculateindividual`;
+  try {
+    const response = await http.post(url, literywork);
+    if(!response.ok){
+      throw new Error('Error al crear el libro');
+    }
+    return await response.json();
+  } catch (error) {
+    throw new Error('Error al crear el libro');
+  }
+}

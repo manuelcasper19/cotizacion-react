@@ -1,6 +1,6 @@
 import { useContext, useEffect } from 'react';
 import { AppContext } from '../states/Appcontext';
-import { getLiteryWork } from '../services/customer.service';
+import { getLiteryWork } from '../services/literywork.service';
 import { ILiteryWork } from '../models/literywork.model';
 
 
