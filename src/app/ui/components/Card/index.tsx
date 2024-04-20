@@ -5,6 +5,7 @@ import { ImageLiteryWork } from '../../elements/Image';
 import { ButtonLiterywork } from '../../elements/Buttons';
 
 
+
 export const CardLiteryWork = ( { title, url, incrasePrice} : ILiteryWork) : ReactElement => {
   return (
     <article className="literywork__detail">

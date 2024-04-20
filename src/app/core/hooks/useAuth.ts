@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { AppContext } from '../states/Appcontext';
 import { authService } from '../services/auth.service';
 import { useNavigate } from 'react-router-dom';
@@ -19,4 +19,36 @@ export const useAuth = () => {
       }
     });
   return { authenticate, error };
+};
+
+export const useUserFullName = () => {
+  const [userFullName, setUserFullName] = useState<string>();
+
+  useEffect(() => {
+    const token = localStorage.getItem('TOKEN');
+    if (token) {
+      const userData = parseToken(token);
+      if (userData && userData.FirstName && userData.LastName) {
+        const { FirstName, LastName } = userData;
+        const fullName = `${FirstName} ${LastName}`;
+               setUserFullName(fullName);
+      } else {
+        console.error('Missing or invalid user data in token');
+      }
+    } else {
+      console.error('Token not found in localStorage');
+    }
+  }, []);
+
+  const parseToken = (token: string) => {
+    try {
+      const tokenData = JSON.parse(atob(token.split('.')[1]));
+      return tokenData;
+    } catch (error) {
+      console.error('Error parsing token:', error);
+      return null;
+    }
+  };
+
+  return userFullName;
 };

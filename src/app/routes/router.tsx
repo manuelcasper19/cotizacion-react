@@ -3,6 +3,7 @@ import { LayoutMain } from '../ui/Layout/LayoutMain';
 import Quotion from '../pages/Cotizacion';
 import Home from '../pages/Home';
 import Recommendation from '../pages/Recommendation';
+import Login from '../pages/Login';
 
 export const router = createBrowserRouter([
     {
@@ -23,7 +24,12 @@ export const router = createBrowserRouter([
           path: 'recommendation',
           Component: Recommendation
           // element: <Guard><Dashboard /></Guard>
-        }
+        },
+        {
+          path: 'auth',
+          Component: Login
+          // element: <Guard><Dashboard /></Guard>
+        },
       ]
     }
     // {
