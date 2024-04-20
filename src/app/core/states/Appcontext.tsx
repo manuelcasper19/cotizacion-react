@@ -2,7 +2,8 @@ import { ReactElement, ReactNode, createContext, useReducer } from 'react';
 
 export const initialState: IState = {
   isUserLogged: false,
-  literyWork: []
+  literyWork: [],
+  userFullName: ''
 };
 interface IAppContext {
   state: IState;
@@ -17,6 +18,7 @@ interface IAppProviderProps {
 interface IState {
   isUserLogged: boolean;
   literyWork: string[];
+  userFullName: string;
 }
 
 interface IAction {
@@ -31,6 +33,8 @@ export const reducer = (state: IState, action: IAction): IState => {
       return { ...state, isUserLogged: true };
     case 'LITERYWORK_GOTTEN':
       return { ...state, literyWork: action.payload };
+    case 'UPDATE_USERNAME': 
+      return { ...state, userFullName: action.payload };
     default:
       return state;
   }

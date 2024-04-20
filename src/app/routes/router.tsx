@@ -3,6 +3,8 @@ import { LayoutMain } from '../ui/Layout/LayoutMain';
 import Quotion from '../pages/Cotizacion';
 import Home from '../pages/Home';
 import Recommendation from '../pages/Recommendation';
+import Login from '../pages/Login';
+import LiteryWork from '../pages/LiteryWork';
 
 export const router = createBrowserRouter([
     {
@@ -15,15 +17,25 @@ export const router = createBrowserRouter([
         },
         {
           path: 'cotizacion',
-          Component: Quotion
+          Component: Quotion,
           // element: <Guard><Dashboard /></Guard>
-        },
+        },        
+        {
+          path: 'createbook',
+          Component: LiteryWork,
+          // element: <Guard><Dashboard /></Guard>
+        },        
         
         {
           path: 'recommendation',
           Component: Recommendation
           // element: <Guard><Dashboard /></Guard>
-        }
+        },
+        {
+          path: 'auth',
+          Component: Login
+          // element: <Guard><Dashboard /></Guard>
+        },
       ]
     }
     // {

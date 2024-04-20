@@ -5,7 +5,7 @@ import { LiteyworkContainer } from '../../container/LiteryworkContainer';
 const Home = () : ReactElement => {
    
     return (
-      <LiteyworkContainer/>
+      <LiteyworkContainer/>      
     );
 };
 export default Home;

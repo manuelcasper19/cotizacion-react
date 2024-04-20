@@ -1,7 +1,7 @@
 /* Sidebar.css */
 .header {
     display: flex;
-    justify-content: start;
+    justify-content: space-between;
     align-items: center;
     height: 3.5rem;
     background-color: rgba(37, 32, 75, 0.9);
@@ -23,3 +23,20 @@
   text-decoration: none;
 }
 
+.login__menu {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* Alinea el elemento hacia la derecha */
+  margin-right: 2rem; /* Ajusta el margen derecho */
+}
+
+.login__link {
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.user-icon {
+  margin-right: 0.5rem; /* Ajusta el margen entre el icono y el texto */
+}
