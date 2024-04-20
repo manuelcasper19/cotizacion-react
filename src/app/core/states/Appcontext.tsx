@@ -33,8 +33,8 @@ export const reducer = (state: IState, action: IAction): IState => {
       return { ...state, isUserLogged: true };
     case 'LITERYWORK_GOTTEN':
       return { ...state, literyWork: action.payload };
-    case 'UPDATE_USERNAME': 
-      return { ...state, userFullName: action.payload };
+    case 'ADD_BOOK':
+      return { ...state, literyWork: [...state.literyWork, action.payload] };
     default:
       return state;
   }

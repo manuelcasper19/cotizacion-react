@@ -27,4 +27,4 @@ export const createLiteryWork = async ( literywork: ILiteryWork) : Promise<ILite
   } catch (error) {
     throw new Error('Error al crear el libro');
   }
-}
+};
