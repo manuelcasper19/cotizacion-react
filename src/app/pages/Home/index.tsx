@@ -1,11 +1,11 @@
-import  { ReactElement } from 'react'
-
+import  { ReactElement } from 'react';
+import { LiteyworkContainer } from '../../container/LiteryworkContainer';
 
 
 const Home = () : ReactElement => {
+   
     return (
-        <h1>analisis</h1>
-    )
-}
-
-export default Home
+      <LiteyworkContainer/>
+    );
+};
+export default Home;

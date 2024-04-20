@@ -11,7 +11,7 @@
 .sidebar__menu {
   width: 250px;
   height: 100vh;
-  background-color: #000080;
+  background-color: rgba(37, 32, 75, 0.9);
   position: fixed;
   top: 0;
   left: 0;

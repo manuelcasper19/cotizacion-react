@@ -1,6 +1,32 @@
-main {
+@import '../../../assets/normalize.css';
+
+html {
+    background-image: linear-gradient(180deg, #debdca 22%, rgba(37, 32, 75, 0.74) 82%);
+    background-size: cover;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-repeat: no-repeat;
+    color: #fff;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
+    margin: 0;
+  }  
+ 
+
+  main {   
+    margin: 50px 30px 20px 30px;
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-}
+    transition: margin-left 0.3s ease-in-out; 
+  }
+
+  .literywork {
+    
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); 
+    grid-gap: 20px; 
+    max-width: 100%; 
+    padding: 20px; 
+  }
