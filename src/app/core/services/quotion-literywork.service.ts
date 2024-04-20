@@ -1,10 +1,6 @@
+import { ILiteryworkToQuote } from '../models/literywork.model';
 import { urls } from '../resources/url.resourse';
 import http from './general/http.service';
-
-interface ILiteryworkToQuote {
-    id: number;
-    quantity: number;
-  }
 
   export const submitQuote = async (booksToQuote: ILiteryworkToQuote[]) => {
     const url = `${urls.literywork}/calculateall`;

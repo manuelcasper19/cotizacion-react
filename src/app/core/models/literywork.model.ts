@@ -6,3 +6,10 @@ export interface ILiteryWork {
     literyWorkType?: number;
   }
   
+
+  export interface ILiteryworkToQuote {
+    id: number;
+    quantity: number;
+  }
+
+  
