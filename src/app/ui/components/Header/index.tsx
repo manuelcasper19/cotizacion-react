@@ -12,7 +12,10 @@ import { useUserFullName } from '../../../core/hooks/useAuth';
   const [close, setClose] = useState(false);
   const showSidebar = () => setClose(!close);
   const userName = useUserFullName();
-
+  const formatName = (name) => {
+    return name.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+  };
+  
   return (
     <>
        <div className="header">
@@ -22,7 +25,7 @@ import { useUserFullName } from '../../../core/hooks/useAuth';
         <div className="login__menu">
           {userName ? (
             <>
-              {userName}
+              {formatName(userName)}
             </>
           ) : (
             <Link to="/auth" className="login__link">

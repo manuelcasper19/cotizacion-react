@@ -6,7 +6,7 @@ import './style.css';
     return (
       <div className="login">
       <form className="form">
-        <label for="chk" aria-hidden="true">Log in</label>
+        <label htmlFor="chk" aria-hidden="true">Log in</label>
         <input className="input" type="email" name="email" placeholder="Email" /> 
         <input className="input" type="password" name="pswd" placeholder="Password" />
         <button>Log in</button>

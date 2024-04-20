@@ -28,7 +28,12 @@ export const SidebarMenu: IItemMenu[] = [
       title: 'Simular',
       url: '/recommendation',
       icon: FaIcons.FaSlideshare
-  }
+  },
+  {
+    title: 'Agregar',
+    url: '/createbook',
+    icon: FaIcons.FaBook
+},
 ];
 
 const Sidebar = ({ close, showSidebar }: SidebarProps) => {

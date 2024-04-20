@@ -12,7 +12,7 @@ export const useAuth = () => {
   const authenticate = (email: string, password: string) => authService({ email, password })
     .then((isAuthenticated) => {
       if (isAuthenticated) {
-        dispatch({ type: 'USER_LOGGED' });
+        dispatch({ type: 'USER_LOGGED' });         
         navigate('/');
       } else {
         setError('Las credenciales son incorrectas');
@@ -32,12 +32,8 @@ export const useUserFullName = () => {
         const { FirstName, LastName } = userData;
         const fullName = `${FirstName} ${LastName}`;
                setUserFullName(fullName);
-      } else {
-        console.error('Missing or invalid user data in token');
-      }
-    } else {
-      console.error('Token not found in localStorage');
-    }
+      } 
+    } 
   }, []);
 
   const parseToken = (token: string) => {
@@ -45,7 +41,7 @@ export const useUserFullName = () => {
       const tokenData = JSON.parse(atob(token.split('.')[1]));
       return tokenData;
     } catch (error) {
-      console.error('Error parsing token:', error);
+      console.error('error leyendo el token:', error);
       return null;
     }
   };

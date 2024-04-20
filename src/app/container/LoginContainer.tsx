@@ -1,11 +1,10 @@
 import { ReactElement } from 'react';
-import { FormLogin } from '../ui/components/Forms/FormLogin';
+import FormSection from '../ui/forms/SectionForm';
 
 export const LoginContainer = (): ReactElement => {
-    
   return (
-      <>
-      <FormLogin />
+      <>      
+      <FormSection />
     </>
   );
   };
