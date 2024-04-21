@@ -2,6 +2,7 @@ import  { ReactElement, useState } from 'react';
 import './style.css';
 import { ILiteryworkToQuote } from '../../../core/models/literywork.model';
 import Modal from '../Modal2';
+import { useBudget } from '../../../core/hooks/useBudget';
 
 interface ShoppingCartProps {
   shoppingCart: ILiteryworkToQuote[];
@@ -10,8 +11,9 @@ interface ShoppingCartProps {
 }
 
 const ShoppingCart = ({ shoppingCart, totalItems, handleQuote }: ShoppingCartProps): ReactElement => {
-  const [budget, setBudget] = useState('');
+  const [budgetValue, setBudgetValue] = useState(0);
   const [showModal, setShowModal] = useState(false);
+ const { budget } = useBudget();
 
   const handleRecommend = () => {
     setShowModal(true);
@@ -19,11 +21,11 @@ const ShoppingCart = ({ shoppingCart, totalItems, handleQuote }: ShoppingCartPro
 
   const handleCloseModal = () => {
     setShowModal(false);
-    setBudget('');
+    setBudgetValue(0);
   };
 
   const handleSubmitBudget = () => {
-    console.log('Enviar presupuesto al backend:', budget);
+    budget(shoppingCart, budgetValue);
     handleCloseModal();
   };
 
@@ -53,8 +55,8 @@ const ShoppingCart = ({ shoppingCart, totalItems, handleQuote }: ShoppingCartPro
               <h2>Ingrese su presupuesto</h2>
               <input
                 type="number"
-                value={budget}
-                onChange={(e) => setBudget(e.target.value)}
+                value={budgetValue}
+                onChange={(e) => setBudgetValue(parseInt(e.target.value))}
                 placeholder="Ingrese su presupuesto"
               />
             </div>
