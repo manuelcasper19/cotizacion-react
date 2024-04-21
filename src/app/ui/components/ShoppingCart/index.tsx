@@ -1,26 +1,32 @@
 import  { ReactElement } from 'react';
 import './style.css';
-import { useShoppingCart } from '../../../core/hooks/useShoppingCart';
+import { ILiteryworkToQuote } from '../../../core/models/literywork.model';
 
+interface ShoppingCartProps {
+  shoppingCart: ILiteryworkToQuote[];
+  totalItems: number;
+  handleQuote: () => void;
+}
 
-const ShoppingCart = (): ReactElement => {
-  const { shoppingCart, handleQuote, getTotalItems } = useShoppingCart();
+const ShoppingCart = ({ shoppingCart, totalItems, handleQuote }: ShoppingCartProps): ReactElement => {
   return (
-    <section>
-      <h2>Carrito de compras ({getTotalItems()} libros)</h2>
+    <section className="shopping__cart">
+      <h2>Carrito de compras ({totalItems} libros)</h2>
       {shoppingCart.length > 0 ? (
-        <ul>
-          {shoppingCart.map((book) => (
-            <li key={book.id}>
-              Libro ID: {book.id} - Cantidad: {book.quantity}
-            </li>
-          ))}
-        </ul>
+        <>
+          <ol>
+            {shoppingCart.map((book) => (
+              <li key={book.id}>
+                Libro ID: {book.id} - Cantidad: {book.quantity}
+              </li>
+            ))}
+          </ol>
+          <button onClick={handleQuote}>Cotizar</button>
+        </>
       ) : (
         <p>No hay libros en el carrito</p>
       )}
-      <button onClick={handleQuote}>Cotizar</button>
     </section>
   );
 };
-  export default ShoppingCart;
+export default ShoppingCart;

@@ -16,14 +16,13 @@ html {
   main {   
     margin: 50px 30px 20px 30px;
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     justify-content: center;
     min-height: 100vh;
     transition: margin-left 0.3s ease-in-out; 
   }
 
-  .literywork {
-    
+  .literywork {    
     display: grid;
     grid-template-columns: repeat(5, 1fr); 
     grid-gap: 20px; 

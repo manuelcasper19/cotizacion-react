@@ -1,4 +1,5 @@
 import { ReactElement, ReactNode, createContext, useReducer } from 'react';
+import { ILiteryWork, ILiteryworkToQuote } from '../models/literywork.model';
 
 export const initialState: IState = {
   isUserLogged: false,
@@ -20,7 +21,7 @@ interface IState {
   isUserLogged: boolean;
   literyWork: string[];
   userFullName: string;
-  quote: number[];
+  quote: ILiteryworkToQuote[] |  ILiteryWork[];
 }
 
 interface IAction {

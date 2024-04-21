@@ -5,6 +5,7 @@ import Home from '../pages/Home';
 import Recommendation from '../pages/Recommendation';
 import Login from '../pages/Login';
 import LiteryWork from '../pages/LiteryWork';
+import CartShopping from '../pages/CartShopping';
 
 export const router = createBrowserRouter([
     {
@@ -29,6 +30,11 @@ export const router = createBrowserRouter([
         {
           path: 'recommendation',
           Component: Recommendation
+          // element: <Guard><Dashboard /></Guard>
+        },
+        {
+          path: 'cart',
+          Component: CartShopping
           // element: <Guard><Dashboard /></Guard>
         },
         {

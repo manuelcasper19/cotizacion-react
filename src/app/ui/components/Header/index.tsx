@@ -13,16 +13,18 @@ import { AppContext } from '../../../core/states/Appcontext';
   const [close, setClose] = useState(false);
   const showSidebar = () => setClose(!close);
   const userName = useUserFullName();
-  //const { getTotalItems } = useShoppingCart();
   const { state } = useContext(AppContext);
-  //console.log(getTotalItems)
   const formatName = (name) => {
     return name.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
   };
 
   const getTotalItems = () => {
-    return state.quote.reduce((total, book) => total + book.quantity, 0);
-  };
+     if (Array.isArray(state.quote)) {
+      return state.quote.reduce((total, book) => total + book.quantity, 0);
+    } else {
+      return 0;
+    }
+  }
   return (
     <>
        <div className="header">

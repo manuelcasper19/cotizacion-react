@@ -6,7 +6,13 @@ import http from './general/http.service';
     const url = `${urls.literywork}/calculateall`;
   
     try {
-      const response = await http.post(url, booksToQuote);
+      const transformedData = booksToQuote.map(book => ({
+        id: book.id,
+        quantityBook: book.quantity
+      }));
+  
+      const data = { literyWorks: transformedData };
+          const response = await http.post(url, data);
       if (!response.ok) {
         throw new Error('Error al enviar la cotización');
       }

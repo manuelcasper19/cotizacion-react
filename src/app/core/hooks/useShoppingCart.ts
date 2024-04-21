@@ -2,11 +2,12 @@ import { useContext, useState } from 'react';
 import { ILiteryworkToQuote } from '../models/literywork.model';
 import { AppContext } from '../states/Appcontext';
 import { submitQuote } from '../services/quotion-literywork.service';
+import { useNavigate } from 'react-router-dom';
 
 export const useShoppingCart = () => {
     const [shoppingCart, setShoppingCart] = useState<ILiteryworkToQuote[]>([]);
     const { state, dispatch } = useContext(AppContext);
-  
+    const navigate = useNavigate();
     const addToCart = (bookId: number, quantity: number) => {
       const updatedCart = [...state.quote, { id: bookId, quantity }];
       dispatch({ type: 'QUOTION_CHOICE', payload: updatedCart });
@@ -14,8 +15,11 @@ export const useShoppingCart = () => {
   
     const handleQuote = async () => {
       try {
-        const response = await submitQuote(shoppingCart);
-        dispatch({ type: 'QUOTE_SUBMITTED', payload: response });
+        console.log(shoppingCart)
+        const response = await submitQuote(state.quote);
+        console.log(response)
+        dispatch({ type: 'QUOTION_CHOICE', payload: response });
+        navigate('/cotizacion');
       } catch (err) {
         console.error('Error al enviar la cotización');
       }
