@@ -10,7 +10,8 @@ export const LiteyworkContainer = (): ReactElement => {
             key={literywork.title} 
             incrasePrice={literywork.increasePrice} 
             url={literywork.url} 
-            title={ literywork.title}></CardLiteryWork> )
+            title={ literywork.title}
+            id={ literywork.id}></CardLiteryWork> )
     
     }   
     </section>

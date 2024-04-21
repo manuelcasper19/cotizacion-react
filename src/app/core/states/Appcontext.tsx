@@ -3,7 +3,8 @@ import { ReactElement, ReactNode, createContext, useReducer } from 'react';
 export const initialState: IState = {
   isUserLogged: false,
   literyWork: [],
-  userFullName: ''
+  userFullName: '',
+  quote: []
 };
 interface IAppContext {
   state: IState;
@@ -19,6 +20,7 @@ interface IState {
   isUserLogged: boolean;
   literyWork: string[];
   userFullName: string;
+  quote: number[];
 }
 
 interface IAction {
@@ -35,6 +37,8 @@ export const reducer = (state: IState, action: IAction): IState => {
       return { ...state, literyWork: action.payload };
     case 'ADD_BOOK':
       return { ...state, literyWork: [...state.literyWork, action.payload] };
+    case 'QUOTION_CHOICE':
+    return { ...state, quote: action.payload };
     default:
       return state;
   }

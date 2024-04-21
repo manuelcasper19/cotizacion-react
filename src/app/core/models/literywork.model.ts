@@ -1,4 +1,5 @@
 export interface ILiteryWork {
+    id: number;
     title: string;
     url: string;
     price: number;

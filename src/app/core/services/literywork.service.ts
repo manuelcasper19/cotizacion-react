@@ -11,7 +11,8 @@ export const getLiteryWork = (): Promise<ILiteryWork[]> => {
         title: item.title,
         price: item.price,
         increasePrice: item.incrasePrice,
-        url: item.url
+        url: item.url,
+        id: item.id
       }));
     });
 };

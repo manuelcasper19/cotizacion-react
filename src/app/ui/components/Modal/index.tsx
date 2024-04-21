@@ -1,5 +1,6 @@
 import  { ReactElement, useState } from 'react';
 import './style.css';
+import Modal from './ModalGeneric';
 
 
 interface IModalProps {
@@ -17,12 +18,9 @@ const ModalLiteryWork = ( { isOpen, onClose, onAddToCart, bookId }: IModalProps)
     onClose();
   };
 
- return isOpen ? (
-    <div className="modal">
-      <div className="modal-content">
-        <span className="close" onClick={onClose}>
-          &times;
-        </span>
+  return (
+    <Modal isOpen={isOpen} onClose={onClose}>
+      <div>
         <h2>Cantidad de libros a agregar</h2>
         <input
           type="number"
@@ -31,7 +29,8 @@ const ModalLiteryWork = ( { isOpen, onClose, onAddToCart, bookId }: IModalProps)
         />
         <button onClick={handleAddToCart}>Agregar al carrito</button>
       </div>
-    </div>
-  ) : null;
+    </Modal>
+  );
 };
+
 export default ModalLiteryWork;

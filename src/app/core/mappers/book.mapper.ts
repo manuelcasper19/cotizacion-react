@@ -7,7 +7,8 @@ import { ILiteryWork } from '../models/literywork.model';
         increasePrice: item.increasePrice,
         price: item.price,
         title: item.title,
-        url : item.url
+        url : item.url,
+        id: item.id
       }));
     }
   };

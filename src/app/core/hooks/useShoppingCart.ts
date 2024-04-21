@@ -5,11 +5,12 @@ import { submitQuote } from '../services/quotion-literywork.service';
 
 export const useShoppingCart = () => {
     const [shoppingCart, setShoppingCart] = useState<ILiteryworkToQuote[]>([]);
-    const { dispatch } = useContext(AppContext);
+    const { state, dispatch } = useContext(AppContext);
   
     const addToCart = (bookId: number, quantity: number) => {
-      setShoppingCart([...shoppingCart, { id: bookId, quantity }]);
-    };
+      const updatedCart = [...state.quote, { id: bookId, quantity }];
+      dispatch({ type: 'QUOTION_CHOICE', payload: updatedCart });
+  };
   
     const handleQuote = async () => {
       try {
@@ -21,6 +22,5 @@ export const useShoppingCart = () => {
     };
   
     const getTotalItems = () => shoppingCart.reduce((total, book) => total + book.quantity, 0);
-  
-    return { addToCart, handleQuote, getTotalItems, shoppingCart };
+      return { addToCart, handleQuote, getTotalItems, shoppingCart };
   };

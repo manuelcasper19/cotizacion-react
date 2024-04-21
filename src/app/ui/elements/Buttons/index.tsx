@@ -3,12 +3,13 @@ import './style.css';
 
 
 interface IButtonProps{
-  title: string
+  title: string;
+  onClick?: () => void;
 }
 
-export const ButtonLiterywork = ({ title }: IButtonProps): ReactElement => {
+export const ButtonLiterywork = ({ title, onClick }: IButtonProps): ReactElement => {
     return (
-      <button>
+      <button onClick={onClick}>
       <span className="transition"></span>
       <span className="gradient"></span>
       <span className="label">{title}</span>
