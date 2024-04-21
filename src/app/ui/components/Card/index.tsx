@@ -4,10 +4,7 @@ import './style.css';
 import { ImageLiteryWork } from '../../elements/Image';
 import { ButtonLiterywork } from '../../elements/Buttons';
 import { useShoppingCart } from '../../../core/hooks/useShoppingCart';
-// import ModalLiteryWork from '../Modal';
-import Modal from '../Modal2';
-
-
+import Modal from '../Modal';
 
 export const CardLiteryWork = ({ title, url, incrasePrice, id }: ILiteryWork): ReactElement => {
   const { addToCart } = useShoppingCart();
@@ -29,14 +26,19 @@ export const CardLiteryWork = ({ title, url, incrasePrice, id }: ILiteryWork): R
           <ImageLiteryWork url={url} title={title} />
           <footer className="literywork__header">
             <h2 className="literywork-card__price">{"$ " + incrasePrice}</h2>
-            <ButtonLiterywork title="Add" onClick={openModal} />
+            <ButtonLiterywork title="Agregar" onClick={openModal} />
           </footer>
         </div>
       </div>
-      <Modal isOpen={isModalOpen} onClose={closeModal} onConfirm={handleAddToCart} onCancel={closeModal} confirmText="Agregar al carrito" cancelText="Cancelar">
+      <Modal isOpen={isModalOpen} 
+             onClose={closeModal} 
+             onConfirm={handleAddToCart} 
+             onCancel={closeModal} 
+             confirmText="Agregar al carrito" 
+             cancelText="Cancelar">
         <div>
           <h2>Cantidad de libros a agregar</h2>
-          <input
+          <input className="modal__input"
             type="number"
             value={quantity}
             onChange={(e) => setQuantity(parseInt(e.target.value))}

@@ -15,10 +15,9 @@ export const useShoppingCart = () => {
   
     const handleQuote = async () => {
       try {
-        console.log(shoppingCart)
         const response = await submitQuote(state.quote);
         console.log(response)
-        dispatch({ type: 'QUOTION_CHOICE', payload: response });
+        dispatch({ type: 'QUOTION_COMPLETED', payload: response });
         navigate('/quotion');
       } catch (err) {
         console.error('Error al enviar la cotización');

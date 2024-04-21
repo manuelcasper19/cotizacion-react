@@ -1,8 +1,9 @@
 import  { ReactElement, useState } from 'react';
 import './style.css';
 import { ILiteryworkToQuote } from '../../../core/models/literywork.model';
-import Modal from '../Modal2';
+import Modal from '../Modal';
 import { useBudget } from '../../../core/hooks/useBudget';
+import { ButtonLiterywork } from '../../elements/Buttons';
 
 interface ShoppingCartProps {
   shoppingCart: ILiteryworkToQuote[];
@@ -41,8 +42,8 @@ const ShoppingCart = ({ shoppingCart, totalItems, handleQuote }: ShoppingCartPro
               </li>
             ))}
           </ol>
-          <button onClick={handleQuote}>Cotizar</button>
-          <button onClick={handleRecommend}>Recomendarme</button>
+          <ButtonLiterywork title="Cotizar" onClick={handleQuote} />
+          <ButtonLiterywork title="Recomendarme" onClick={handleRecommend} />
           <Modal
             isOpen={showModal}
             onClose={handleCloseModal}
@@ -53,7 +54,8 @@ const ShoppingCart = ({ shoppingCart, totalItems, handleQuote }: ShoppingCartPro
             >
             <div>
               <h2>Ingrese su presupuesto</h2>
-              <input
+              <input 
+                className="modal__input"
                 type="number"
                 value={budgetValue}
                 onChange={(e) => setBudgetValue(parseInt(e.target.value))}

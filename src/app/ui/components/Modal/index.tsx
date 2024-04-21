@@ -1,36 +1,53 @@
-import  { ReactElement, useState } from 'react';
+import  { ReactNode } from 'react';
 import './style.css';
-import Modal from './ModalGeneric';
+import { ButtonLiterywork } from '../../elements/Buttons';
 
 
 interface IModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onAddToCart: (bookId: number, quantity: number) => void;
-  bookId: number;
+  onConfirm?: () => void;
+  onCancel?: () => void;
+  confirmText?: string;
+  cancelText?: string;
+  children: ReactNode;
 }
 
-const ModalLiteryWork = ( { isOpen, onClose, onAddToCart, bookId }: IModalProps): ReactElement => {
-  const [quantity, setQuantity] = useState<number>(1);
-
-  const handleAddToCart = () => {
-    onAddToCart(bookId, quantity);
-    onClose();
+const Modal: React.FC<IModalProps> = ({
+  isOpen,
+  onClose,
+  onConfirm,
+  onCancel,
+  confirmText,
+  cancelText,
+  children,
+}) => {
+  if (!isOpen) return null;
+  const handleOutsideClick = (event: React.MouseEvent<HTMLDialogElement>) => {
+    
+    if (event.target === event.currentTarget) {
+      onClose();
+    }
   };
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose}>
-      <div>
-        <h2>Cantidad de libros a agregar</h2>
-        <input
-          type="number"
-          value={quantity}
-          onChange={(e) => setQuantity(parseInt(e.target.value))}
-        />
-        <button onClick={handleAddToCart}>Agregar al carrito</button>
+    <dialog open={isOpen} onClick={handleOutsideClick} className="modal__overlay">
+      <div className="modal__content">
+        <span className="modal__close" onClick={onClose}>
+          &times;
+        </span>
+        {children}
+        <div className="modal__buttons">
+        <ButtonLiterywork title={confirmText} onClick={onConfirm} />
+        <ButtonLiterywork title={cancelText} onClick={onCancel} />
+        
+          {/* <button onClick={onConfirm}>{confirmText}</button>
+          <button onClick={onCancel}>{cancelText}</button> */}
+        </div>
       </div>
-    </Modal>
+    </dialog>
   );
 };
 
-export default ModalLiteryWork;
+export default Modal;
+

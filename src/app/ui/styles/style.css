@@ -29,3 +29,8 @@ html {
     max-width: 100%; 
     padding: 20px; 
   }
+  .modal__input {
+    width: 100%; 
+    padding: 10px; 
+    box-sizing: border-box; 
+  }

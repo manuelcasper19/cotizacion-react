@@ -3,7 +3,7 @@ import './style.css';
 
 
 interface IButtonProps{
-  title: string;
+  title?: string;
   onClick?: () => void;
 }
 
