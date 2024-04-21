@@ -4,20 +4,24 @@ import './style.css';
 import { ImageLiteryWork } from '../../elements/Image';
 import { ButtonLiterywork } from '../../elements/Buttons';
 import { useShoppingCart } from '../../../core/hooks/useShoppingCart';
-import ModalLiteryWork from '../Modal';
+// import ModalLiteryWork from '../Modal';
+import Modal from '../Modal2';
 
 
 
-export const CardLiteryWork = ( { title, url, incrasePrice, id} : ILiteryWork) : ReactElement => {
+export const CardLiteryWork = ({ title, url, incrasePrice, id }: ILiteryWork): ReactElement => {
   const { addToCart } = useShoppingCart();
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [quantity, setQuantity] = useState<number>(1);
+
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
-  const handleAddToCart = (bookId, quantity) => {
-    addToCart(bookId, quantity);
-    
-  };
 
+  const handleAddToCart = () => {
+    addToCart(id, quantity);
+    closeModal();
+  };
+  
   return (
     <article className="literywork__detail">
       <div className="literywork__card">
@@ -29,12 +33,16 @@ export const CardLiteryWork = ( { title, url, incrasePrice, id} : ILiteryWork) :
           </footer>
         </div>
       </div>
-      <ModalLiteryWork
-        isOpen={isModalOpen}
-        onClose={closeModal}
-        onAddToCart={handleAddToCart}
-        bookId={id}
-      />
+      <Modal isOpen={isModalOpen} onClose={closeModal} onConfirm={handleAddToCart} onCancel={closeModal} confirmText="Agregar al carrito" cancelText="Cancelar">
+        <div>
+          <h2>Cantidad de libros a agregar</h2>
+          <input
+            type="number"
+            value={quantity}
+            onChange={(e) => setQuantity(parseInt(e.target.value))}
+          />
+        </div>
+      </Modal>
     </article>
   );
 };
