@@ -34,3 +34,7 @@ html {
     padding: 10px; 
     box-sizing: border-box; 
   }
+  .quotionliterywork__title{
+    text-align: center;
+    color: rgb(17, 17, 71);
+  }

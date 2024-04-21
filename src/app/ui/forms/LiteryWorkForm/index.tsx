@@ -5,16 +5,22 @@ import { ILiteryWork } from '../../../core/models/literywork.model';
 
 interface ILiteryWorkFormProps {
   createBook: (book: ILiteryWork) => Promise<void>;
-  error?: string;
 }
 
-const LiteryWorkForm = ({ createBook, error }: ILiteryWorkFormProps): ReactElement => {
+const LiteryWorkForm = ({ createBook }: ILiteryWorkFormProps): ReactElement => {
   const [validationErrors, setValidationErrors] = useState<{ [key: string]: string }>({});
   const literyInputs = [
     { type: 'text', name: 'title', placeholder: 'Titulo' },
     { type: 'text', name: 'url', placeholder: 'URL' },
     { type: 'number', name: 'price', placeholder: 'Precio' },
-    { type: 'number', name: 'literyWorkType', placeholder: 'Tipo de material literario' },
+    {
+      name: 'literyWorkType',
+      placeholder: 'Tipo de material literario',
+      options: [
+        { value: 0, label: 'Novela' },
+        { value: 1, label: 'Libro' },        
+      ],
+    },
   ];
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
@@ -24,9 +30,6 @@ const LiteryWorkForm = ({ createBook, error }: ILiteryWorkFormProps): ReactEleme
     const url = formData.get('url') as string;
     const price = Number(formData.get('price'));
     const literyWorkType = Number(formData.get('literyWorkType'));
-    console.log('Valores enviados:', event.currentTarget);
-    console.log(literyWorkType)
-    console.log(price)
 
     const errors: { [key: string]: string } = {};
     if (!title) {
@@ -38,10 +41,11 @@ const LiteryWorkForm = ({ createBook, error }: ILiteryWorkFormProps): ReactEleme
     if (!price) {
       errors.price = 'El precio es obligatorio';
     }
-    if (!literyWorkType) {
-      console.log(errors)
+    console.log(literyWorkType)
+    if (literyWorkType === undefined || literyWorkType === null) {      
       errors.literyWorkType = 'El tipo de material literario es obligatorio';
     }
+    
     if (Object.keys(errors).length === 0) {
       createBook({ title, url, price, literyWorkType });
       setValidationErrors({});
@@ -50,16 +54,14 @@ const LiteryWorkForm = ({ createBook, error }: ILiteryWorkFormProps): ReactEleme
     }
   };
 
-
   return (
     <section>
       <FormRegister
-        title="Create Book"
+        title="Crear material literio"
         onSubmit={handleSubmit}
         inputs={literyInputs}
         validationErrors={validationErrors}
       />
-      {error && <p>{error}</p>}
     </section>
   );
 };

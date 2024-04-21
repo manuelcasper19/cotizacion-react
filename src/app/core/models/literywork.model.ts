@@ -1,5 +1,5 @@
 export interface ILiteryWork {
-    id: number;
+    id?: number;
     title: string;
     url: string;
     price: number;
@@ -16,6 +16,17 @@ export interface ILiteryWork {
   export interface ILiteryworkToBudget {
     budget: number;
     literyWorksId: number[];
+  }
+
+  export interface ILiteryWorkDetail {
+    id: number;
+    title: string;
+    increasedPrice: number;
+    quantityToPurchase: number;
+    discountWhoSale: number;
+    incresedRetail: number;
+    total: number;
+    literyWorkType: number;
   }
 
 

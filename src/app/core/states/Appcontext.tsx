@@ -1,17 +1,26 @@
 import { ReactElement, ReactNode, createContext, useReducer } from 'react';
-import { ILiteryWork, ILiteryworkToQuote } from '../models/literywork.model';
+import { ILiteryWorkDetail, ILiteryworkToQuote } from '../models/literywork.model';
 
-export const initialState: IState = {
+const initialState: IState = {
   isUserLogged: false,
   literyWork: [],
   userFullName: '',
   quote: [],
   recommendationWithBudget: null,
-  quoteCompleted: []
+  quoteCompleted: null
 };
 interface IAppContext {
   state: IState;
   dispatch: (action: IAction) => void;
+}
+
+interface IQuotationCompleted {
+  literyWorkDetailQuoationDTOs: ILiteryWorkDetail[];
+  seniorityDiscount : number;
+  total : number;
+  totalIncrease: number;
+  totalPay: number;
+  whosaleDiscount: number;
 }
 export const AppContext = createContext<IAppContext>({ state: initialState, dispatch: () => {} });
 
@@ -24,7 +33,7 @@ interface IState {
   literyWork: string[];
   userFullName: string;
   quote: ILiteryworkToQuote[];
-  quoteCompleted: ILiteryWork[]
+  quoteCompleted: IQuotationCompleted | null;
   recommendationWithBudget: any;
 }
 

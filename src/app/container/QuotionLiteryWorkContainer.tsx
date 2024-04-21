@@ -5,11 +5,14 @@ import { DiscountInfo } from '../ui/elements/TitleTable';
 
 export const QuotionLiteryWorkContainer = (): ReactElement => {
   const { state } = useContext(AppContext);
-//   const { handleQuote } = useShoppingCart();
+  
+  if (!state.quoteCompleted || !state.quoteCompleted.literyWorkDetailQuoationDTOs || state.quoteCompleted.literyWorkDetailQuoationDTOs.length === 0) {
+    return <p>No hay elementos cotizados</p>;
+  }
 
   return (
     <div>
-    <h2>Detalle de la cotización</h2>
+    <h2 className="quotionliterywork__title">Detalle de la cotización</h2>
     <DiscountInfo label="Descuento por antiguedad" value={state.quoteCompleted.seniorityDiscount} />
     <DiscountInfo label="Descuento por venta el por mayor" value={state.quoteCompleted.whosaleDiscount} />
     <DiscountInfo label="Total" value={state.quoteCompleted.total} /> 

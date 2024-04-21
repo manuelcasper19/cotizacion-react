@@ -1,23 +1,26 @@
 import  { ReactElement } from 'react';
-
+import './style.css';
 interface RecommendationComponentProps {
-  recommendationData: any; 
+  [book: string]: number;
 }
 
 const RecommendationComponent = ({ recommendationData }: RecommendationComponentProps): ReactElement => {
+  if (!recommendationData) {
+    return <p className="recomendation__empty">No hay datos de recomendación</p>;
+  }
   return (
-    <div className="recommendation-card">
-      <h2>Recomendación con presupuesto:</h2>
-      <ul>
-        {Object.entries(recommendationData).map(([book, quantity]) => (
+    <div className="recommendation__card">
+      <h2 className="recommendation__title">Recomendación con presupuesto:</h2>
+      <div className="recommendation__subcard">   
+      <ol> {Object.entries(recommendationData).map(([book, quantity]) => (
           <li key={book}>
-            <span>{book}: </span>
+            <span>{book} </span>
             <span>{quantity}</span>
           </li>
         ))}
-      </ul>
+      </ol> 
+      </div>     
     </div>
   );
 };
-
 export default RecommendationComponent;

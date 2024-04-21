@@ -1,31 +1,17 @@
-import { ReactElement, useState } from 'react';
 import './style.css';
 
 
-interface Option {
-  label: string;
-  value: string;
+interface SelectProps {
+  name: string;
+  placeholder: string;
+  options: { value: number; label: string }[];
 }
 
-interface SelectInputProps {
-  options: Option[];
-  onChange: (value: number) => void;
-}
-
-const SelectInput = ({ options, onChange }: SelectInputProps): ReactElement => {
-  const [selectedOption, setSelectedOption] = useState<string>('');
-
-  const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const value = event.target.value;
-   
-    setSelectedOption(value);
-    onChange(parseInt(value)); // Convertir el valor a un número
-  };
-
+const Select: React.FC<SelectProps> = ({ name, placeholder, options }) => {
   return (
-    <select className="select__input" value={selectedOption} onChange={handleChange}>
-      <option value="">Seleccione una opción</option>
-      {options.map((option) => (
+    <select name={name} className="form__select">
+      <option value="">{placeholder}</option>
+      {options.map(option => (
         <option key={option.value} value={option.value}>
           {option.label}
         </option>
@@ -34,4 +20,4 @@ const SelectInput = ({ options, onChange }: SelectInputProps): ReactElement => {
   );
 };
 
-export default SelectInput;
+export default Select;

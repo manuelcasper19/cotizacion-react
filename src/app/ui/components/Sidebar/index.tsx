@@ -13,21 +13,11 @@ type SidebarProps = {
   showSidebar: () => void; 
 };
 
-export const SidebarMenu: IItemMenu[] = [
+const SidebarMenu: IItemMenu[] = [
   {
       title: 'Home',
       url: '/',
       icon: FaIcons.FaHome
-  },
-  {
-      title: 'Cotizacion',
-      url: '/cotizacion',
-      icon: FaIcons.FaCalculator
-  },
-  {
-      title: 'Simular',
-      url: '/recommendation',
-      icon: FaIcons.FaSlideshare
   },
   {
     title: 'Agregar',
@@ -46,7 +36,7 @@ const Sidebar = ({ close, showSidebar }: SidebarProps) => {
       </Link>
       <ul>
         {SidebarMenu.map((item) => (
-          <ItemMenu key={item.title} icon={item.icon} title={item.title} url={item.url} />
+          <ItemMenu key={item.title} icon={item.icon} title={item.title} url={item.url} closeSidebar={showSidebar}/>
         ))}
       </ul>
     </div>
