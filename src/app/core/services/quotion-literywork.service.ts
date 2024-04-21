@@ -1,4 +1,4 @@
-import { ILiteryworkToQuote } from '../models/literywork.model';
+import { ILiteryworkToBudget, ILiteryworkToQuote } from '../models/literywork.model';
 import { urls } from '../resources/url.resourse';
 import http from './general/http.service';
 
@@ -13,6 +13,20 @@ import http from './general/http.service';
   
       const data = { literyWorks: transformedData };
           const response = await http.post(url, data);
+      if (!response.ok) {
+        throw new Error('Error al enviar la cotización');
+      }
+      return await response.json();
+    } catch (error) {
+      throw new Error('Error al enviar la cotización');
+    }
+  };
+
+  export const submitBudget = async (booksToBudget: ILiteryworkToBudget) => {
+    const url = `${urls.literywork}/calculatemaxdiscount`;
+  
+    try {       
+      const response = await http.post(url, booksToBudget);
       if (!response.ok) {
         throw new Error('Error al enviar la cotización');
       }

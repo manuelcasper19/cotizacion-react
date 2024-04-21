@@ -5,7 +5,8 @@ export const initialState: IState = {
   isUserLogged: false,
   literyWork: [],
   userFullName: '',
-  quote: []
+  quote: [],
+  recommendationWithBudget: null
 };
 interface IAppContext {
   state: IState;
@@ -22,6 +23,7 @@ interface IState {
   literyWork: string[];
   userFullName: string;
   quote: ILiteryworkToQuote[] |  ILiteryWork[];
+  recommendationWithBudget: any;
 }
 
 interface IAction {
@@ -40,8 +42,10 @@ export const reducer = (state: IState, action: IAction): IState => {
       return { ...state, literyWork: [...state.literyWork, action.payload] };
     case 'QUOTION_CHOICE':
     return { ...state, quote: action.payload };
+    case 'RECOMMENDATION_WITH_BUDGET': 
+    return { ...state, recommendationWithBudget: action.payload };
     default:
-      return state;
+    return state;
   }
 };
 

@@ -19,7 +19,7 @@ export const useShoppingCart = () => {
         const response = await submitQuote(state.quote);
         console.log(response)
         dispatch({ type: 'QUOTION_CHOICE', payload: response });
-        navigate('/cotizacion');
+        navigate('/quotion');
       } catch (err) {
         console.error('Error al enviar la cotización');
       }

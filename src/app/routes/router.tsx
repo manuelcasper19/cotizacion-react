@@ -17,7 +17,7 @@ export const router = createBrowserRouter([
            Component: Home
         },
         {
-          path: 'cotizacion',
+          path: 'quotion',
           Component: Quotion,
           // element: <Guard><Dashboard /></Guard>
         },        

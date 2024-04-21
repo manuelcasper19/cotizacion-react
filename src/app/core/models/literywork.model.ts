@@ -13,4 +13,10 @@ export interface ILiteryWork {
     quantity: number;
   }
 
+  export interface ILiteryworkToBudget {
+    budget: number;
+    literyWorksId: number[];
+  }
+
+
   
