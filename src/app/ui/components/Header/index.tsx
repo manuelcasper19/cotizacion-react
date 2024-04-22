@@ -1,35 +1,59 @@
 // Sidebar.jsx
-import { useState } from 'react';
-import { FaBars} from 'react-icons/fa';
+import { FaBars, FaShoppingCart, FaSignOutAlt, FaTimes } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import './style.css';
 import Sidebar from '../Sidebar';
 import { FaUser } from 'react-icons/fa6';
-import { useUserFullName } from '../../../core/hooks/useAuth';
 
+interface IHeaderProps {
+  close: boolean;
+  showSidebar: () => void;
+  userName?: string;
+  formatName: (name: string) => string;
+  showSubMenu: boolean;
+  toggleSubMenu: () => void;
+  closeSubMenu: () => void;
+  handleLogout: () => void;
+  getTotalItems: () => number;
+}
 
- export const Header = () => {
-  const [close, setClose] = useState(false);
-  const showSidebar = () => setClose(!close);
-  const userName = useUserFullName();
-  const formatName = (name) => {
-    return name.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
-  };
-  
+export const Header = ({
+  close,
+  showSidebar,
+  userName,
+  formatName,
+  showSubMenu,
+  toggleSubMenu,
+  closeSubMenu,
+  handleLogout,
+  getTotalItems
+}: IHeaderProps) => {
   return (
     <>
-       <div className="header">
+      <div className="header">
         <Link to="#" className="menu-icon__open" onClick={showSidebar}>
           <FaBars />
         </Link>
+
         <div className="login__menu">
           {userName ? (
             <>
+              <FaUser className="user__icon" onClick={toggleSubMenu} />
+              {showSubMenu && (
+                <div className="submenu">
+                  <button onClick={handleLogout}><FaSignOutAlt /></button>
+                  <button onClick={closeSubMenu}><FaTimes /></button>
+                </div>
+              )}
               {formatName(userName)}
+              <Link to="/cart" className="cart__link">
+                <span>{getTotalItems()}</span>
+                <FaShoppingCart />
+              </Link>
             </>
           ) : (
             <Link to="/auth" className="login__link">
-              <FaUser className="user-icon" /> Login
+              <FaUser className="user__icon" />
             </Link>
           )}
         </div>
@@ -38,4 +62,3 @@ import { useUserFullName } from '../../../core/hooks/useAuth';
     </>
   );
 };
-

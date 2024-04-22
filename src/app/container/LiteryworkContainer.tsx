@@ -3,16 +3,17 @@ import { useLiteryWork } from '../core/hooks/useLiteryWork';
 import { CardLiteryWork } from '../ui/components/Card';
 
 export const LiteyworkContainer = (): ReactElement => {
-  const { literywork } = useLiteryWork();    
+  const { literywork } = useLiteryWork();
   return (
     <section className="literywork">
-    {literywork.map((literywork) => <CardLiteryWork 
-            key={literywork.title} 
-            incrasePrice={literywork.increasePrice} 
-            url={literywork.url} 
-            title={ literywork.title}></CardLiteryWork> )
-    
-    }   
+      {literywork.map((literywork) => <CardLiteryWork
+        key={literywork.title}
+        incrasePrice={literywork.incrasePrice}
+        url={literywork.url}
+        title={literywork.title}
+        id={literywork.id}></CardLiteryWork>)
+
+      }
     </section>
   );
-  };
+};

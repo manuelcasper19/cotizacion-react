@@ -1,40 +1,5 @@
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  padding: 24px;
-}
-
-/*checkbox to switch from sign up to login*/
-#chk {
-  display: none;
-}
-
-label {
-  color: #fff;
-  font-size: 2rem;
-  justify-content: center;
-  display: flex;
-  font-weight: bold;
-  cursor: pointer;
-  transition: .5s ease-in-out;
-}
-
-
-.form button {
-  width: 85%;
-  height: 40px;
-  margin: 12px auto 10%;
-  color: #fff;
-  background: #573b8a;
-  font-size: 1rem;
-  font-weight: bold;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: .2s ease-in;
-}
-
-.form button:hover {
-  background-color: #6d44b8;
+.error__message{
+  margin: 3px;
+  font-size: 16px; 
+  color: rgb(189, 39, 39);
 }

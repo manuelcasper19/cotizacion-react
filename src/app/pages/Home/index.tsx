@@ -1,11 +1,10 @@
-import  { ReactElement } from 'react';
+import { ReactElement } from 'react';
 import { LiteyworkContainer } from '../../container/LiteryworkContainer';
 
+const Home = (): ReactElement => {
 
-const Home = () : ReactElement => {
-   
-    return (
-      <LiteyworkContainer/>      
-    );
+  return (
+    <LiteyworkContainer />
+  );
 };
 export default Home;

@@ -11,6 +11,7 @@ button {
   overflow: hidden;
   border-radius: 0.6em;
   cursor: pointer;
+  margin-right: 15px;
 }
 
 .gradient {

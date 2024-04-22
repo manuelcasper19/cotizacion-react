@@ -1,4 +1,3 @@
-/* Sidebar.css */
 .header {
     display: flex;
     justify-content: space-between;
@@ -26,17 +25,21 @@
 .login__menu {
   display: flex;
   align-items: center;
-  justify-content: flex-end; /* Alinea el elemento hacia la derecha */
-  margin-right: 2rem; /* Ajusta el margen derecho */
+  justify-content: flex-end;   
+  gap: 20px;
 }
 
+.cart__link,
 .login__link {
   display: flex;
   align-items: center;
   color: #ffffff;
   text-decoration: none;
+  margin: 20px;
+  font-size: 20px;
 }
 
-.user-icon {
-  margin-right: 0.5rem; /* Ajusta el margen entre el icono y el texto */
+.user__icon {
+  cursor: pointer;
+  font-size: 20px;
 }

@@ -1,12 +1,10 @@
-import  { ReactElement } from 'react';
+import { ReactElement } from 'react';
 import { LoginContainer } from '../../container/LoginContainer';
 
+const Login = (): ReactElement => {
 
-
-const Login = () : ReactElement => {
-   
-    return (
-      <LoginContainer/>
-    );
+  return (
+    <LoginContainer />
+  );
 };
 export default Login;

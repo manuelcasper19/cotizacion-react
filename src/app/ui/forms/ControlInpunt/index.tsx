@@ -1,9 +1,12 @@
 import { ReactElement } from 'react';
 import './style.css';
 
-
-
-const Input = ({ type, name, placeholder }): ReactElement => {
+interface InputProps {
+  type: string;
+  name: string;
+  placeholder: string;
+}
+const Input = ({ type, name, placeholder }: InputProps): ReactElement => {
   return (
     <input className="input" type={type} name={name} placeholder={placeholder} />
   );

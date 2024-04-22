@@ -5,51 +5,39 @@ import Home from '../pages/Home';
 import Recommendation from '../pages/Recommendation';
 import Login from '../pages/Login';
 import LiteryWork from '../pages/LiteryWork';
+import CartShopping from '../pages/CartShopping';
+import { Guard } from './Guard';
 
 export const router = createBrowserRouter([
-    {
-      path: '',
-      Component: LayoutMain,
-      children: [
-        {
-          path: '/',
-           Component: Home
-        },
-        {
-          path: 'cotizacion',
-          Component: Quotion,
-          // element: <Guard><Dashboard /></Guard>
-        },        
-        {
-          path: 'createbook',
-          Component: LiteryWork,
-          // element: <Guard><Dashboard /></Guard>
-        },        
-        
-        {
-          path: 'recommendation',
-          Component: Recommendation
-          // element: <Guard><Dashboard /></Guard>
-        },
-        {
-          path: 'auth',
-          Component: Login
-          // element: <Guard><Dashboard /></Guard>
-        },
-      ]
-    }
-    // {
-    //   path: 'admin',
-    //   // Component: LayoutAdmin,
-    //   children: [
-    //     {
-    //       path: '',
-    //       // Component: Home
-    //     },
-    //     {
-    //       path: 'dashboard',
-    //       // element: <Guard><Dashboard /></Guard>
-    //     }
-    //   ]
-    // }
-  ]);
+  {
+    path: '',
+    Component: LayoutMain,
+    children: [
+      {
+        path: '/',
+        Component: Home
+      },
+      {
+        path: 'quotion',
+        element: <Guard> <Quotion /> </Guard>
+      },
+      {
+        path: 'createbook',
+        element: <Guard> <LiteryWork /> </Guard>
+      },
+
+      {
+        path: 'recommendation',
+        element: <Guard> <Recommendation /> </Guard>
+      },
+      {
+        path: 'cart',
+        element: <Guard> <CartShopping /> </Guard>
+      },
+      {
+        path: 'auth',
+        Component: Login
+      },
+    ]
+  }
+]);

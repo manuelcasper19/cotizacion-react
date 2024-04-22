@@ -5,7 +5,9 @@ export default {
     toApi: (credentials: IUserCredentials): any => {
       return {
         Email: credentials.email,
-        Password: credentials.password
+        Password: credentials.password,
+        Firstname: credentials.firstname,
+        Lastname: credentials.lastname
       };
     }
   };

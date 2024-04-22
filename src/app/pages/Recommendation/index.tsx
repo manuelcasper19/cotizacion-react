@@ -1,11 +1,12 @@
-import  { ReactElement } from 'react'
+import  { ReactElement } from 'react';
+import { RecommendationContainer } from '../../container/RecommendationContainer';
 
 
 
 const Recommendation = () : ReactElement => {
     return (
-        <h1>Recommendation</h1>
-    )
-}
+        <RecommendationContainer />
+    );
+};
 
-export default Recommendation
+export default Recommendation;

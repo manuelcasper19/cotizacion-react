@@ -1,11 +1,10 @@
-import  { ReactElement } from 'react'
-
-
+import { ReactElement } from 'react';
+import { QuotionLiteryWorkContainer } from '../../container/QuotionLiteryWorkContainer';
 
 const Quotion = (): ReactElement => {
     return (
-        <h1>cotizacion</h1>
+        <QuotionLiteryWorkContainer />
     );
-}
+};
 
 export default Quotion;

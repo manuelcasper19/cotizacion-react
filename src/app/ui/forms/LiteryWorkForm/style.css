@@ -1,0 +1,25 @@
+
+.input {
+  width: 332px;
+  height: 30px;
+  background: #e0dede;
+  padding: 10px;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  width: 95%;
+}
+
+.litery__card {
+  margin-top: 50px;  
+  width: 450px;
+  border-radius: 10px;
+  height: 500px;
+  background-color: #25204b;
+  box-shadow: 15px 15px 30px #191919,
+               -15px -15px 30px #292929;
+
+ }
+
+
+ 

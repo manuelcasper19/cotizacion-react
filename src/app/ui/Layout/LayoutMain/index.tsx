@@ -1,16 +1,15 @@
 import { ReactElement } from 'react';
 import './style.css';
-import { Header } from '../../components/Header';
 import { Outlet } from 'react-router-dom';
+import HeaderContainer from '../../../container/HeaderContainer';
 
 export const LayoutMain = (): ReactElement => {
     return (
       <>
-        <Header />       
+        <HeaderContainer />       
         <main>
           <Outlet />
-        </main>
-        {/* <Footer /> */}
+        </main>    
       </>
-    );
-  };
+  );
+};

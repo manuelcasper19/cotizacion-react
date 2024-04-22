@@ -4,4 +4,5 @@ export interface IItemMenu {
   title: string;
   url: string;
   icon: ElementType;
+  closeSidebar?: () => void;
 }
