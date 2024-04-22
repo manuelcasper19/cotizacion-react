@@ -2,6 +2,7 @@ import { FormEvent } from 'react';
 import Input from '../ControlInpunt';
 import './style.css';
 import Select from '../SelectForm';
+import { ButtonLiterywork } from '../../elements/Buttons';
 
 interface IFormInput {
   type?: string;
@@ -52,7 +53,7 @@ const FormRegister = ({ title, onSubmit, inputs, validationErrors  }: IFormRegis
           {validationErrors[input.name] && <p className="error__message">{validationErrors[input.name]}</p>}
         </div>
       ))}
-      <button type="submit">{title}</button>
+      <ButtonLiterywork  title={title} key={title}/>
     </form>
   );
 };

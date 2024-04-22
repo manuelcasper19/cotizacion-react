@@ -6,6 +6,7 @@ import Recommendation from '../pages/Recommendation';
 import Login from '../pages/Login';
 import LiteryWork from '../pages/LiteryWork';
 import CartShopping from '../pages/CartShopping';
+import { Guard } from './Guard';
 
 export const router = createBrowserRouter([
     {
@@ -18,44 +19,25 @@ export const router = createBrowserRouter([
         },
         {
           path: 'quotion',
-          Component: Quotion,
-          // element: <Guard><Dashboard /></Guard>
+          element: <Guard> <Quotion/> </Guard>
         },        
         {
           path: 'createbook',
-          Component: LiteryWork,
-          // element: <Guard><Dashboard /></Guard>
+          element: <Guard> <LiteryWork/> </Guard>
         },        
         
         {
           path: 'recommendation',
-          Component: Recommendation
-          // element: <Guard><Dashboard /></Guard>
+          element: <Guard> <Recommendation/> </Guard>
         },
         {
           path: 'cart',
-          Component: CartShopping
-          // element: <Guard><Dashboard /></Guard>
-        },
+          element: <Guard> <CartShopping/> </Guard>
+           },
         {
           path: 'auth',
           Component: Login
-          // element: <Guard><Dashboard /></Guard>
-        },
+         },
       ]
     }
-    // {
-    //   path: 'admin',
-    //   // Component: LayoutAdmin,
-    //   children: [
-    //     {
-    //       path: '',
-    //       // Component: Home
-    //     },
-    //     {
-    //       path: 'dashboard',
-    //       // element: <Guard><Dashboard /></Guard>
-    //     }
-    //   ]
-    // }
   ]);

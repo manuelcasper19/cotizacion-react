@@ -5,11 +5,12 @@
   flex-direction: column;
   align-items: center;
   background-color: #25204b;
-  max-height: 600px;
+  max-height: 500px;
   overflow: hidden;
   border-radius: 12px;
   box-shadow: 7px 7px 10px 3px #24004628;
 }
+
 .form__main{
 width: 100%;
 display: flex;
@@ -29,13 +30,12 @@ justify-content: center;
   display: none;
 }
 
-
 .form__login {
   display: flex;
   align-items: center;
  justify-content: center;
   width: 100%;
-  height: 100%;
+  height: 400px;
 }
 
 .login label {
@@ -58,11 +58,11 @@ label {
   transform: translateY(5%);
   transition: .8s ease-in-out;
   width: 100%;
-  height: 499px;
+  height: 599px;
 }
 
 .register label {
-  color: #573b8a;
+  color: #25204b;
   transform: scale(.6);
 }
 
@@ -72,7 +72,7 @@ label {
 
 #chk:checked ~ .register label {
   transform: scale(1);
-  margin: 10% 0 5%;
+  /* margin: 10% 0 5%; */
 }
 
 #chk:checked ~ .login label {
@@ -83,9 +83,9 @@ label {
 .form button {
   width: 85%;
   height: 40px;
-  margin: 40px auto 10%;
+  margin: 20px auto 10%;
   color: #fff;
-  background: #573b8a;
+  background: #debdca;
   font-size: 1rem;
   font-weight: bold;
   border: none;
@@ -95,5 +95,9 @@ label {
 }
 
 .form button:hover {
-  background-color: #6d44b8;
+  background-color: #20074e;
 }
+.form__auth *:not(.register) .login {
+  display: none;
+}
+
