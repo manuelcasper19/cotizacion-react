@@ -1,35 +1,26 @@
-<<<<<<< HEAD
-# React + TypeScript + Vite
+# LiteryWork - Book Registration and Quotation
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+LiteryWork is a project that allows you to register and quote books according to established business rules. This project is developed using modern web technologies such as React, TypeScript, CSS, and HTML.
 
-Currently, two official plugins are available:
+## Technologies Used
+- React
+- TypeScript
+- CSS
+- HTML
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Repository
+The repository of this project is located on GitHub. You can clone it from the following link:
+[LiteryWork Repository](https://github.com/manuelcasper19/cotizacion-react.git)
 
-## Expanding the ESLint configuration
+## Installation Instructions
+To install the project dependencies, follow these steps:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+1. Clone the repository from GitHub:
+   ```bash
+   git clone https://github.com/manuelcasper19/cotizacion-react.git
 
-- Configure the top-level `parserOptions` property like this:
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
-=======
-# cotizacion-react
-quotes front end
->>>>>>> 0389f6361bbb1060ab40fb0dcefe5511e31835e6
+2. Navigate to the project directory:
+   cd literywork
+3. Install Node.js dependencies using npm:
+   npm install
