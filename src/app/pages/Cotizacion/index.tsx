@@ -1,12 +1,10 @@
-import  { ReactElement } from 'react'
+import { ReactElement } from 'react';
 import { QuotionLiteryWorkContainer } from '../../container/QuotionLiteryWorkContainer';
-
-
 
 const Quotion = (): ReactElement => {
     return (
-        <QuotionLiteryWorkContainer/>
+        <QuotionLiteryWorkContainer />
     );
-}
+};
 
 export default Quotion;

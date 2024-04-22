@@ -23,7 +23,6 @@ const FormSection = ({ authenticate, error }: IFormSectionProps) => {
     { type: 'password', name: 'password', placeholder: 'Password' },
   ];
 
-  
   const handleLoginSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
@@ -37,7 +36,7 @@ const FormSection = ({ authenticate, error }: IFormSectionProps) => {
       errors.password = 'El password es obligatorio';
     }
     if (Object.keys(errors).length === 0) {
-      const data : IUserCredentials = {
+      const data: IUserCredentials = {
         email,
         password
       }
@@ -69,7 +68,7 @@ const FormSection = ({ authenticate, error }: IFormSectionProps) => {
       errors.lastname = 'El apellido es obligatorio';
     }
     if (Object.keys(errors).length === 0) {
-      const data : IUserCredentials = {
+      const data: IUserCredentials = {
         email,
         password,
         firstname,

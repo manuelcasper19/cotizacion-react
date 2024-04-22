@@ -1,6 +1,8 @@
 .shopping__cart{
   text-align: center;
   margin: 20px;
+  justify-content: center;
+  width: 90%;
 }
 
 .literywork-img__cart{
@@ -9,3 +11,7 @@
   border-radius: 10px;
 }
 
+
+.cart__title{
+  color: #25204b;  
+}

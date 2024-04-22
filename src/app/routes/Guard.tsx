@@ -7,7 +7,7 @@ interface IGuardProps {
 }
 export const Guard = ({ children }: IGuardProps) => {
   const { state } = useContext(AppContext);
-  
+
   if (!state.isUserLogged) {
     return <Navigate to='/' replace />
   }

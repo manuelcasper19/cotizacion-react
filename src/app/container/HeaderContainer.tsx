@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useAuth, useUserFullName } from '../core/hooks/useAuth';
 import { Header } from '../ui/components/Header';
 import { AppContext } from '../core/states/Appcontext';
@@ -9,16 +9,27 @@ const HeaderContainer = () => {
   const userName = useUserFullName();
   const { state } = useContext(AppContext);
   const { logout } = useAuth();
-
+  const [loading, setLoading] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const showSidebar = () => setClose(!close);
 
-  const formatName = (name) => {
+  const formatName = (name: string) => {
     return name.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
   };
 
   const toggleSubMenu = () => {
     setShowSubMenu(!showSubMenu);
   };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      if (userName !== undefined) {
+        setLoading(false);
+        setIsLoggedIn(true);
+      }
+    };
+    fetchData();
+  }, [userName]);
 
   const closeSubMenu = () => {
     setShowSubMenu(false);
@@ -35,7 +46,6 @@ const HeaderContainer = () => {
       return 0;
     }
   };
-
   return (
     <Header
       close={close}

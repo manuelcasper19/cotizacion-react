@@ -1,11 +1,9 @@
-import  { ReactElement } from 'react';
+import { ReactElement } from 'react';
 import { LiteryworkCreateContainer } from '../../container/LiteryworkCreateContainer';
 
-
-
-const LiteryWork = () : ReactElement => {
+const LiteryWork = (): ReactElement => {
     return (
-        <LiteryworkCreateContainer/>
+        <LiteryworkCreateContainer />
     );
 };
 

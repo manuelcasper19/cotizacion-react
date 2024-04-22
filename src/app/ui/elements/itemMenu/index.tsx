@@ -9,12 +9,12 @@ export const ItemMenu = ({ title, url, icon, closeSidebar }: IItemMenu): ReactEl
     closeSidebar!();
   };
 
-    return (
-        <li key={title} className="menu__items">
-        <Link to={url} className="menu-item__links" onClick={handleClick}>
-          {React.createElement(icon)}
-          <span style={{ marginLeft: '16px' }}>{title}</span>
-        </Link>
-      </li>
-    );
-  };
+  return (
+    <li key={title} className="menu__items">
+      <Link to={url} className="menu-item__links" onClick={handleClick}>
+        {React.createElement(icon)}
+        <span style={{ marginLeft: '16px' }}>{title}</span>
+      </Link>
+    </li>
+  );
+};

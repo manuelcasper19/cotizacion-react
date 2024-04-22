@@ -53,7 +53,7 @@ const ShoppingCart = ({ shoppingCart, totalItems, handleQuote }: ShoppingCartPro
 
   return (
     <section className="shopping__cart">
-      <h2>Carrito de compras ({totalItems} libros)</h2>
+      <h2 className="cart__title">Carrito de compras ({totalItems} libros)</h2>
       {books.length > 0 ? (
         <>
           <table>
@@ -78,8 +78,11 @@ const ShoppingCart = ({ shoppingCart, totalItems, handleQuote }: ShoppingCartPro
               ))}
             </tbody>
           </table>
+          <div className="table__button">
           <ButtonLiterywork title="Cotizar" onClick={handleQuote} />
           <ButtonLiterywork title="Recomendarme" onClick={handleRecommend} />
+          </div>
+
           <Modal
             isOpen={showModal}
             onClose={handleCloseModal}

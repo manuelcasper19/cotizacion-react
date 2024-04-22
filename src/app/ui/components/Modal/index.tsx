@@ -1,4 +1,4 @@
-import  { ReactNode } from 'react';
+import { ReactNode } from 'react';
 import './style.css';
 import { ButtonLiterywork } from '../../elements/Buttons';
 
@@ -24,12 +24,11 @@ const Modal: React.FC<IModalProps> = ({
 }) => {
   if (!isOpen) return null;
   const handleOutsideClick = (event: React.MouseEvent<HTMLDialogElement>) => {
-    
+
     if (event.target === event.currentTarget) {
       onClose();
     }
   };
-
   return (
     <dialog open={isOpen} onClick={handleOutsideClick} className="modal__overlay">
       <div className="modal__content">
@@ -38,8 +37,8 @@ const Modal: React.FC<IModalProps> = ({
         </span>
         {children}
         <div className="modal__buttons">
-        <ButtonLiterywork title={confirmText} onClick={onConfirm} />
-        <ButtonLiterywork title={cancelText} onClick={onCancel} />
+          <ButtonLiterywork title={confirmText} onClick={onConfirm} />
+          <ButtonLiterywork title={cancelText} onClick={onCancel} />
         </div>
       </div>
     </dialog>

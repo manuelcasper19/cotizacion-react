@@ -4,7 +4,7 @@ import { ILiteryWork } from '../models/literywork.model';
 const literyWorkMapper = {
   fromApi: (apiResponse: any): ILiteryWork[] => {
     return apiResponse.map((item: ILiteryWork) => ({
-      increasePrice: item.increasePrice,
+      increasePrice: item.incrasePrice,
       price: item.price,
       title: item.title,
       url: item.url,

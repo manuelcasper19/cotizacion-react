@@ -12,8 +12,7 @@ export const useAuth = () => {
 
   const authenticate = (credentials: IUserCredentials) => loginService(credentials)
     .then((isAuthenticated) => {
-      console.log(isAuthenticated)
-      if (isAuthenticated) {
+        if (isAuthenticated) {
         dispatch({ type: 'USER_LOGGED' });         
         navigate('/');
       } else {
@@ -32,21 +31,25 @@ export const useAuth = () => {
   return { authenticate: authenticate, logout, getToken, error };
 };
 
-
 export const useUserFullName = () => {
+  const { state } = useContext(AppContext); 
   const [userFullName, setUserFullName] = useState<string>();
-  useEffect(() => {
-    const token = localStorage.getItem('TOKEN');
-    if (token) {
-      const userData = parseToken(token);
-      if (userData && userData.FirstName && userData.LastName) {
-        const { FirstName, LastName } = userData;
-        const fullName = `${FirstName} ${LastName}`;
-               setUserFullName(fullName);
-      } 
-    } 
-  }, []);
 
+  useEffect(() => {
+    const fetchUserFullName = async () => {
+      const token = localStorage.getItem('TOKEN');
+      if (token) {
+        const userData = parseToken(token);
+        if (userData && userData.FirstName && userData.LastName) {
+          const { FirstName, LastName } = userData;
+          const fullName = `${FirstName} ${LastName}`;
+          setUserFullName(fullName);
+        }
+      }
+    };
+
+    fetchUserFullName();
+  }, [state.isUserLogged]); 
   const parseToken = (token: string) => {
     try {
       const tokenData = JSON.parse(atob(token.split('.')[1]));

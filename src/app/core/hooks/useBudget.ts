@@ -9,6 +9,7 @@ const { dispatch } = useContext(AppContext);
 const navigate = useNavigate();
 const budget = async (optiones : ILiteryworkToQuote[], budget: number) =>{
 try {
+  console.log(budget);
   const literyWorskId: number[] = optiones.map( option => option.id);
   const budgetObj: ILiteryworkToBudget = {
     budget: budget,

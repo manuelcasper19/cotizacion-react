@@ -26,8 +26,8 @@ interface IFormRegisterProps {
   setLiteryWorkType?: (value: number) => void;
 }
 
-const FormRegister = ({ title, onSubmit, inputs, validationErrors  }: IFormRegisterProps) => {
-  const handleSubmit = ( e: FormEvent<HTMLFormElement>) => {
+const FormRegister = ({ title, onSubmit, inputs, validationErrors }: IFormRegisterProps) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     onSubmit(e);
   };
@@ -53,7 +53,7 @@ const FormRegister = ({ title, onSubmit, inputs, validationErrors  }: IFormRegis
           {validationErrors[input.name] && <p className="error__message">{validationErrors[input.name]}</p>}
         </div>
       ))}
-      <ButtonLiterywork  title={title} key={title}/>
+      <ButtonLiterywork title={title} key={title} />
     </form>
   );
 };

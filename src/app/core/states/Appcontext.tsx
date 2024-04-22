@@ -16,13 +16,13 @@ interface IAppContext {
 
 interface IQuotationCompleted {
   literyWorkDetailQuoationDTOs: ILiteryWorkDetail[];
-  seniorityDiscount : number;
-  total : number;
+  seniorityDiscount: number;
+  total: number;
   totalIncrease: number;
   totalPay: number;
   whosaleDiscount: number;
 }
-export const AppContext = createContext<IAppContext>({ state: initialState, dispatch: () => {} });
+export const AppContext = createContext<IAppContext>({ state: initialState, dispatch: () => { } });
 
 interface IAppProviderProps {
   children: ReactNode;
@@ -43,22 +43,24 @@ interface IAction {
 }
 
 
-export const reducer = (state: IState, action: IAction): IState => {
+const reducer = (state: IState, action: IAction): IState => {
   switch (action.type) {
     case 'USER_LOGGED':
-      return { ...state, isUserLogged: true };
+      return { ...state, isUserLogged: true, };
     case 'LITERYWORK_GOTTEN':
       return { ...state, literyWork: action.payload };
     case 'ADD_BOOK':
       return { ...state, literyWork: [...state.literyWork, action.payload] };
     case 'QUOTION_CHOICE':
-    return { ...state, quote: action.payload };
+      return { ...state, quote: action.payload };
     case 'QUOTION_COMPLETED':
-    return { ...state, quoteCompleted: action.payload };
-    case 'RECOMMENDATION_WITH_BUDGET': 
-    return { ...state, recommendationWithBudget: action.payload };
+      return { ...state, quoteCompleted: action.payload };
+    case 'RECOMMENDATION_WITH_BUDGET':
+      return { ...state, recommendationWithBudget: action.payload };
+    case 'RESET_QUOTE':
+      return { ...state, quote: [] };
     default:
-    return state;
+      return state;
   }
 };
 

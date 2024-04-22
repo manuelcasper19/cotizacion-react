@@ -18,7 +18,7 @@ const LiteryWorkForm = ({ createBook }: ILiteryWorkFormProps): ReactElement => {
       placeholder: 'Tipo de material literario',
       options: [
         { value: 0, label: 'Novela' },
-        { value: 1, label: 'Libro' },        
+        { value: 1, label: 'Libro' },
       ],
     },
   ];
@@ -42,10 +42,10 @@ const LiteryWorkForm = ({ createBook }: ILiteryWorkFormProps): ReactElement => {
       errors.price = 'El precio es obligatorio';
     }
     console.log(literyWorkType)
-    if (literyWorkType === undefined || literyWorkType === null) {      
+    if (literyWorkType === undefined || literyWorkType === null) {
       errors.literyWorkType = 'El tipo de material literario es obligatorio';
     }
-    
+
     if (Object.keys(errors).length === 0) {
       createBook({ title, url, price, literyWorkType });
       setValidationErrors({});
@@ -56,12 +56,17 @@ const LiteryWorkForm = ({ createBook }: ILiteryWorkFormProps): ReactElement => {
 
   return (
     <section>
-      <FormRegister
-        title="Crear material literio"
-        onSubmit={handleSubmit}
-        inputs={literyInputs}
-        validationErrors={validationErrors}
-      />
+      <div className="litery__card">
+        <div className="litery__card__subcard">
+          <FormRegister
+            title="Crear material literio"
+            onSubmit={handleSubmit}
+            inputs={literyInputs}
+            validationErrors={validationErrors}
+          />
+        </div>
+      </div>
+
     </section>
   );
 };

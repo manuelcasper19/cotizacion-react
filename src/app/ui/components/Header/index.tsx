@@ -1,6 +1,5 @@
 // Sidebar.jsx
-import { useContext, useState } from 'react';
-import { FaBars, FaShoppingCart, FaSignOutAlt, FaTimes} from 'react-icons/fa';
+import { FaBars, FaShoppingCart, FaSignOutAlt, FaTimes } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import './style.css';
 import Sidebar from '../Sidebar';
@@ -38,10 +37,8 @@ export const Header = ({
 
         <div className="login__menu">
           {userName ? (
-            <>              
-              <button className="submenu__icon" onClick={toggleSubMenu}>
-                <FaUser className="user__icon" />
-              </button>
+            <>
+              <FaUser className="user__icon" onClick={toggleSubMenu} />
               {showSubMenu && (
                 <div className="submenu">
                   <button onClick={handleLogout}><FaSignOutAlt /></button>
@@ -50,18 +47,17 @@ export const Header = ({
               )}
               {formatName(userName)}
               <Link to="/cart" className="cart__link">
-                <FaShoppingCart />
                 <span>{getTotalItems()}</span>
+                <FaShoppingCart />
               </Link>
             </>
           ) : (
             <Link to="/auth" className="login__link">
-              <FaUser className="user-icon" /> Login
+              <FaUser className="user__icon" />
             </Link>
           )}
         </div>
       </div>
-
       <Sidebar close={close} showSidebar={showSidebar} />
     </>
   );

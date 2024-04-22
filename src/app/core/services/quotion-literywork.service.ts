@@ -27,7 +27,7 @@ import http from './general/http.service';
   
     try {       
       const response = await http.post(url, booksToBudget);
-      console.log(response)
+      console.log(response);
       if (!response.ok) {
         throw new Error('Error al enviar la cotización');
       }

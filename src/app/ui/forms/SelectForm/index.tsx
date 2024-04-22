@@ -1,6 +1,5 @@
 import './style.css';
 
-
 interface SelectProps {
   name: string;
   placeholder: string;
