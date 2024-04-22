@@ -40,9 +40,6 @@ const Modal: React.FC<IModalProps> = ({
         <div className="modal__buttons">
         <ButtonLiterywork title={confirmText} onClick={onConfirm} />
         <ButtonLiterywork title={cancelText} onClick={onCancel} />
-        
-          {/* <button onClick={onConfirm}>{confirmText}</button>
-          <button onClick={onCancel}>{cancelText}</button> */}
         </div>
       </div>
     </dialog>

@@ -1,7 +1,8 @@
 import { useContext, useEffect, useState } from 'react';
 import { AppContext } from '../states/Appcontext';
-import { authService } from '../services/auth.service';
+import { loginService, logoutService } from '../services/auth.service';
 import { useNavigate } from 'react-router-dom';
+import { IUserCredentials } from '../models/user-crential';
 
 
 export const useAuth = () => {
@@ -9,8 +10,9 @@ export const useAuth = () => {
   const [error, setError] = useState<string>();
   const { dispatch } = useContext(AppContext);
 
-  const authenticate = (email: string, password: string) => authService({ email, password })
+  const authenticate = (credentials: IUserCredentials) => loginService(credentials)
     .then((isAuthenticated) => {
+      console.log(isAuthenticated)
       if (isAuthenticated) {
         dispatch({ type: 'USER_LOGGED' });         
         navigate('/');
@@ -18,8 +20,15 @@ export const useAuth = () => {
         setError('Las credenciales son incorrectas');
       }
     });
-  return { authenticate, error };
+    const logout = () => {
+        logoutService();
+        dispatch({ type: 'USER_LOGGED_OUT' });
+        navigate('/');      
+    };
+  return { authenticate: authenticate, logout, error };
 };
+
+
 
 export const useUserFullName = () => {
   const [userFullName, setUserFullName] = useState<string>();

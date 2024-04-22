@@ -31,7 +31,7 @@ const ShoppingCart = ({ shoppingCart, totalItems, handleQuote }: ShoppingCartPro
   };
 
   return (
-    <section className="shopping-cart">
+    <section className="shopping__cart">
       <h2>Carrito de compras ({totalItems} libros)</h2>
       {shoppingCart.length > 0 ? (
         <>

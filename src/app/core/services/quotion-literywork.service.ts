@@ -33,6 +33,6 @@ import http from './general/http.service';
       }
       return await response.json();
     } catch (error) {
-      throw new Error('Error al enviar la cotización');
+      throw new Error('Error al enviar la cotización' + error);
     }
   };

@@ -26,6 +26,6 @@ export const createLiteryWork = async ( literywork: ILiteryWork) : Promise<ILite
     }
     return await response.json();
   } catch (error) {
-    throw new Error('Error al crear el libro');
+    throw new Error('Error al crear el libro ' + error);
   }
 };

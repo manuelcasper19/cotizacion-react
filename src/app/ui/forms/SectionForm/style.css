@@ -1,11 +1,11 @@
 .form__auth {
   position: relative;
   width: 400px;
-
+  margin-top: 40px;
   flex-direction: column;
   align-items: center;
-  background-color: #240046;
-  max-height: 420px;
+  background-color: #25204b;
+  max-height: 600px;
   overflow: hidden;
   border-radius: 12px;
   box-shadow: 7px 7px 10px 3px #24004628;
@@ -21,16 +21,15 @@ justify-content: center;
 .form {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 20px;
   padding: 24px;
 }
 
-/*checkbox to switch from sign up to login*/
 #chk {
   display: none;
 }
 
-/*Login*/
+
 .form__login {
   display: flex;
   align-items: center;
@@ -53,13 +52,13 @@ label {
   transition: .5s ease-in-out;
 }
 
-/*Register*/
 .register {
-  background: #eee;
+  background-image: linear-gradient(180deg, #debdca 32%, rgba(37, 32, 75, 0.74) 77%);
   border-radius: 60% / 10%;
   transform: translateY(5%);
   transition: .8s ease-in-out;
   width: 100%;
+  height: 499px;
 }
 
 .register label {
@@ -80,11 +79,11 @@ label {
   transform: scale(.6);
   margin: 5% 0 5%;
 }   
-/*Button*/
+
 .form button {
   width: 85%;
   height: 40px;
-  margin: 12px auto 10%;
+  margin: 40px auto 10%;
   color: #fff;
   background: #573b8a;
   font-size: 1rem;
