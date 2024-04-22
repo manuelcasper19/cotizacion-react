@@ -38,10 +38,9 @@ export const Header = ({
 
         <div className="login__menu">
           {userName ? (
-            <>
-              {formatName(userName)}
+            <>              
               <button className="submenu__icon" onClick={toggleSubMenu}>
-                <FaUser className="user-icon" />
+                <FaUser className="user__icon" />
               </button>
               {showSubMenu && (
                 <div className="submenu">
@@ -49,6 +48,7 @@ export const Header = ({
                   <button onClick={closeSubMenu}><FaTimes /></button>
                 </div>
               )}
+              {formatName(userName)}
               <Link to="/cart" className="cart__link">
                 <FaShoppingCart />
                 <span>{getTotalItems()}</span>

@@ -2,8 +2,8 @@ export interface ILiteryWork {
     id?: number;
     title: string;
     url: string;
-    price: number;
-    incrasePrice?: number;
+    price?: number;
+    incrasePrice: number;
     literyWorkType?: number;
   }
   

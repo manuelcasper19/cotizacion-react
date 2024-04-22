@@ -1,9 +1,11 @@
-import  { ReactElement, useState } from 'react';
+import  { ReactElement, useEffect, useState } from 'react';
 import './style.css';
-import { ILiteryworkToQuote } from '../../../core/models/literywork.model';
+import { ILiteryWork, ILiteryworkToQuote } from '../../../core/models/literywork.model';
 import Modal from '../Modal';
 import { useBudget } from '../../../core/hooks/useBudget';
 import { ButtonLiterywork } from '../../elements/Buttons';
+import { useGetBook } from '../../../core/hooks/useLiteryWork';
+import { getLiteryWorkById } from '../../../core/services/literywork.service';
 
 interface ShoppingCartProps {
   shoppingCart: ILiteryworkToQuote[];
@@ -15,6 +17,7 @@ const ShoppingCart = ({ shoppingCart, totalItems, handleQuote }: ShoppingCartPro
   const [budgetValue, setBudgetValue] = useState(0);
   const [showModal, setShowModal] = useState(false);
  const { budget } = useBudget();
+ const [books, setBooks] = useState<ILiteryWork[]>([]);
 
   const handleRecommend = () => {
     setShowModal(true);
@@ -30,18 +33,51 @@ const ShoppingCart = ({ shoppingCart, totalItems, handleQuote }: ShoppingCartPro
     handleCloseModal();
   };
 
+  useEffect(() => {
+    const fetchBooks = async () => {
+      const bookPromises = shoppingCart.map(async (item) => {
+        try {
+          const book = await getLiteryWorkById(item.id);
+          return book;
+        } catch (error) {
+          console.error(error);
+          return null;
+        }
+      });
+
+      const fetchedBooks = await Promise.all(bookPromises);
+      setBooks(fetchedBooks.filter((book) => book !== null) as ILiteryWork[]);
+    };
+    fetchBooks();
+  }, []);
+
   return (
     <section className="shopping__cart">
       <h2>Carrito de compras ({totalItems} libros)</h2>
-      {shoppingCart.length > 0 ? (
+      {books.length > 0 ? (
         <>
-          <ol>
-            {shoppingCart.map((book) => (
-              <li key={book.id}>
-                Libro ID: {book.id} - Cantidad: {book.quantity}
-              </li>
-            ))}
-          </ol>
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>img</th>
+                <th>Título</th>
+                <th>Cantidad</th>                
+              </tr>
+            </thead>
+            <tbody>
+              {books.map((book) => (
+                <tr key={book.id}>
+                  <td>{book.id}</td>
+                  <td><img src={book.url} alt={book.title} className="literywork-img__cart" /></td>
+                  <td>{book.title}</td>                  
+                  <td>
+                    {shoppingCart.find((item) => item.id === book.id)?.quantity || 0}
+                  </td>                  
+                 </tr>
+              ))}
+            </tbody>
+          </table>
           <ButtonLiterywork title="Cotizar" onClick={handleQuote} />
           <ButtonLiterywork title="Recomendarme" onClick={handleRecommend} />
           <Modal

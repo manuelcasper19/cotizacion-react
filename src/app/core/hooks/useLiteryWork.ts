@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import { AppContext } from '../states/Appcontext';
-import { createLiteryWork, getLiteryWork } from '../services/literywork.service';
+import { createLiteryWork, getLiteryWork, getLiteryWorkById } from '../services/literywork.service';
 import { ILiteryWork } from '../models/literywork.model';
 import { useNavigate } from 'react-router-dom';
 
@@ -35,4 +35,17 @@ export const useCreateBook = () => {
     }
   };
   return { createBook: createBookHandler, error };
+};
+
+export const useGetBook = () => {
+  const [error, setError] = useState<string>();
+  const getBookHandler = async (id : number) => {
+    try {
+      const newBook = await getLiteryWorkById(id);
+      console.log(newBook);
+    } catch (err) {
+      setError('Error al consultar el libro');
+    }
+  };
+  return { book: getBookHandler, error };
 };

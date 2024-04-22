@@ -1,5 +1,5 @@
-import { ReactElement, ReactNode, createContext, useReducer } from 'react';
-import { ILiteryWorkDetail, ILiteryworkToQuote } from '../models/literywork.model';
+import { ReactElement, ReactNode, createContext, useEffect, useReducer } from 'react';
+import { ILiteryWork, ILiteryWorkDetail, ILiteryworkToQuote } from '../models/literywork.model';
 
 const initialState: IState = {
   isUserLogged: false,
@@ -30,7 +30,7 @@ interface IAppProviderProps {
 
 interface IState {
   isUserLogged: boolean;
-  literyWork: string[];
+  literyWork: ILiteryWork[];
   userFullName: string;
   quote: ILiteryworkToQuote[];
   quoteCompleted: IQuotationCompleted | null;
@@ -64,7 +64,12 @@ export const reducer = (state: IState, action: IAction): IState => {
 
 export const AppProvider = ({ children }: IAppProviderProps): ReactElement => {
   const [state, dispatch] = useReducer(reducer, initialState);
-
+  useEffect(() => {
+    const token = localStorage.getItem('TOKEN');
+    if (token) {
+      dispatch({ type: 'USER_LOGGED' });
+    }
+  }, []);
   return (
     <AppContext.Provider value={{ state, dispatch }}>
       {children}

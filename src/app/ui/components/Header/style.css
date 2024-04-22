@@ -26,8 +26,8 @@
 .login__menu {
   display: flex;
   align-items: center;
-  justify-content: flex-end; 
-  margin-right: 2rem; 
+  justify-content: flex-end;   
+  gap: 20px;
 }
 
 .cart__link,
