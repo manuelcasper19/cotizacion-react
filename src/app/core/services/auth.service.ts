@@ -20,8 +20,12 @@ export const loginService = (credentials: IUserCredentials): Promise<boolean> =>
       });
   };
 
-  export const logoutService = () => {
+  export const logoutService = (): void => {
     const storage = new StorageService();
      storage.remove('TOKEN');
   };
 
+  export const getTokenLocalStorage = (): string => {
+    const storage = new StorageService();
+    return storage.get('TOKEN');
+  };

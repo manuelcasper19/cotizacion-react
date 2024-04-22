@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import { AppContext } from '../states/Appcontext';
-import { loginService, logoutService } from '../services/auth.service';
+import { getTokenLocalStorage, loginService, logoutService } from '../services/auth.service';
 import { useNavigate } from 'react-router-dom';
 import { IUserCredentials } from '../models/user-crential';
 
@@ -25,14 +25,16 @@ export const useAuth = () => {
         dispatch({ type: 'USER_LOGGED_OUT' });
         navigate('/');      
     };
-  return { authenticate: authenticate, logout, error };
+    const getToken = (): string  => {
+      return getTokenLocalStorage();
+    };
+    
+  return { authenticate: authenticate, logout, getToken, error };
 };
-
 
 
 export const useUserFullName = () => {
   const [userFullName, setUserFullName] = useState<string>();
-
   useEffect(() => {
     const token = localStorage.getItem('TOKEN');
     if (token) {
@@ -54,6 +56,5 @@ export const useUserFullName = () => {
       return null;
     }
   };
-
   return userFullName;
 };

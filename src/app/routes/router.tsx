@@ -33,7 +33,7 @@ export const router = createBrowserRouter([
         {
           path: 'cart',
           element: <Guard> <CartShopping/> </Guard>
-           },
+        },
         {
           path: 'auth',
           Component: Login

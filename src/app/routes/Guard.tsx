@@ -1,14 +1,14 @@
-import { ReactNode, useContext } from 'react';
+import { ReactNode } from 'react';
 import { Navigate } from 'react-router-dom';
-import { AppContext } from '../core/states/Appcontext';
+import { useAuth } from '../core/hooks/useAuth';
 
 interface IGuardProps {
   children: ReactNode;
 }
 export const Guard = ({ children }: IGuardProps) => {
-  const { state } = useContext(AppContext);
-  
-  if (!state.isUserLogged) {
+  const getToken = useAuth().getToken; 
+  const token = getToken();
+  if (!token) {
     return <Navigate to='/' replace />
   }
   return children;
